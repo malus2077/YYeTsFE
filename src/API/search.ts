@@ -76,5 +76,5 @@ interface GetSearchKwRes {
 
 /* 搜索剧集 */
 export function getSearchKw(keyword: string, type: string) {
-  return axios.get<GetSearchKwRes>("/api/resource", { params: { keyword, type }, timeout: 10 * 1000 });
+  return axios.get<GetSearchKwRes>("/api/resource/search", { params: { keyword, type }, timeout: 10 * 1000 });
 }
