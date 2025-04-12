@@ -124,7 +124,7 @@ export function Address(props: AddressPropTypes) {
             </TabList>
           </AppBar>
 
-          <DataTable tableData={resourceAddress[season].items[quality]} resourceId={resourceId} />
+          <DataTable tableData={resourceAddress[season].items[quality].items} resourceId={resourceId} />
         </TabContext>
       ) : (
         <div className={classes.empty}>

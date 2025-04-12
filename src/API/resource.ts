@@ -19,7 +19,7 @@ export interface ResourceDetail {
 }
 
 interface Season {
-  [key: string]: Array<ResourceDetail>;
+  [key: string]: { items: Array<ResourceDetail> };
 }
 
 export interface AddressInfo {
