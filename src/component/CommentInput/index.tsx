@@ -129,7 +129,7 @@ export function CommentInput(props: CommentInputPropTypes) {
     getCaptcha(captchaID)
       .then((res) => {
         if (res) {
-          setCaptcha(res.data);
+          setCaptcha(res.data.base64);
         }
 
         setCaptchaLoading(false);

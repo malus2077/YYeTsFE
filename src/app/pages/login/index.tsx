@@ -170,7 +170,7 @@ export function LoginPage() {
 
   React.useEffect(() => {
     getCaptcha(captchaID)
-      .then((res) => setCaptcha(res.data))
+      .then((res) => setCaptcha(res.data.base64))
       .catch((error) => {
         enqueueSnackbar(`验证码获取错误：${error.message}`, { variant: "error" });
       });
