@@ -34,6 +34,7 @@ export interface UserInfo {
     address: string;
   };
   hasAvatar: boolean;
+  accessToken: string;
 }
 /* 登录 */
 export function postUser(params: PostUserParams) {

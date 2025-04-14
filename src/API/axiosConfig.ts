@@ -5,6 +5,18 @@ const instance = axios.create({
   baseURL: process.env.REACT_APP_TAURI,
 });
 
+instance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('accessToken') // 或从 cookie/sessionStorage 中取
+    if (token) {
+      config.headers = config.headers || {}
+      config.headers['Authorization'] = `Bearer ${token}`
+    }
+    return config
+  },
+  (error) => Promise.reject(error)
+)
+
 instance.interceptors.response.use(
   (response) => response,
   (error) => {
