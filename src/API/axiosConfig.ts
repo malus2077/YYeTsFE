@@ -8,11 +8,13 @@ const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('accessToken') // 或从 cookie/sessionStorage 中取
+    const newConfig = { ...config }; // 创建 config 对象的浅拷贝
+
     if (token) {
-      config.headers = config.headers || {}
-      config.headers['Authorization'] = `Bearer ${token}`
+      newConfig.headers = newConfig.headers || {};
+      newConfig.headers.Authorization = `Bearer ${token}`;
     }
-    return config
+    return newConfig
   },
   (error) => Promise.reject(error)
 )

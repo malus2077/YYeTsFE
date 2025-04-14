@@ -182,10 +182,11 @@ export function LoginPage() {
     const status = url.searchParams.get("status");
     const message = url.searchParams.get("message");
     const username = url.searchParams.get("username") || "";
+    const accessToken = url.searchParams.get("accessToken") || "";
 
     if (status === "success") {
       enqueueSnackbar(message, { variant: "success" });
-      setLogin(username, ["user"]);
+      setLogin(username, ["user"],accessToken);
       // 2秒钟之后跳转到首页
       setTimeout(() => {
         history.push("/");
